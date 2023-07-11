@@ -5,6 +5,11 @@ const getCategorias = async (req, res) => {
     res.json(dbCategorias);
 }
 
+const getOneCategoria = async (req, res) => {
+    const unicaCategoria = await Categoria.find({_id:req.params.id});
+    res.json(unicaCategoria);
+}
+
 const postCategorias = async (req, res) => {
     const categoria = new Categoria(req.body);
     try {
@@ -51,6 +56,7 @@ const updateCategoria = async (req, res) => {
 
 export {
     getCategorias,
+    getOneCategoria,
     postCategorias,
     deleteCategoria,
     updateCategoria
