@@ -15,7 +15,18 @@ const postCategorias = async (req, res) => {
     }
 }
 
+const deleteCategoria = async (req, res) => {
+    try {
+        await Categoria.deleteOne({_id: req.params.id});
+        res.json(204).send()
+    } catch (error) {
+        res.status(400);
+        res.send(error.message);
+    }
+}
+
 export {
     getCategorias,
-    postCategorias
+    postCategorias,
+    deleteCategoria
 }
