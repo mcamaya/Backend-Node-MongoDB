@@ -25,8 +25,33 @@ const deleteCategoria = async (req, res) => {
     }
 }
 
+const updateCategoria = async (req, res) => {
+    try {
+        const categoria = await Categoria.findOne({_id:req.params.id});
+
+        if (req.body.imagen) {
+            categoria.imagen = req.body.imagen;
+        }
+
+        if(req.body.nombre) {
+            categoria.nombre = req.body.nombre;
+        }
+
+        if(req.body.descripcion){
+            categoria.descripcion = req.body.descripcion;
+        }
+
+        await categoria.save();
+        res.send(categoria);
+    } catch (error) {
+        res.status(400);
+        res.send(error.message);
+    }
+}
+
 export {
     getCategorias,
     postCategorias,
-    deleteCategoria
+    deleteCategoria,
+    updateCategoria
 }
