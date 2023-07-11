@@ -4,6 +4,7 @@ import conectarDB from "./config/config.js";
 import categoriasRouter from "./routes/categorias.routes.js";
 
 const app = express();
+app.use(express.json());
 dotenv.config();
 
 const port = process.env.PORT;
