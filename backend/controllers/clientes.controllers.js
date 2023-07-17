@@ -6,7 +6,7 @@ const getClientes = async (req, res) => {
 }
 
 const getOneCliente = async (req, res) => {
-    const cliente = await Cliente.find({_id: req.params.id});
+    const cliente = await Cliente.findOne({_id: req.params.id});
     res.json(cliente);
 }
 
