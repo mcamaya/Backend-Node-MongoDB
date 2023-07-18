@@ -6,7 +6,7 @@ const getEmpleados = async (req, res) => {
 }
 
 const getOneEmpleado = async (req, res) => {
-    const empleadoDB = await Empleado.find({_id:req.params.id});
+    const empleadoDB = await Empleado.findOne({_id:req.params.id});
     res.json(empleadoDB);
 }
 

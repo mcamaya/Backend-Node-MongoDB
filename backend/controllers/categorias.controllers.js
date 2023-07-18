@@ -6,7 +6,7 @@ const getCategorias = async (req, res) => {
 }
 
 const getOneCategoria = async (req, res) => {
-    const unicaCategoria = await Categoria.find({_id:req.params.id});
+    const unicaCategoria = await Categoria.findOne({_id:req.params.id});
     res.json(unicaCategoria);
 }
 

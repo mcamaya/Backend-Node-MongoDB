@@ -6,7 +6,7 @@ const getProductos = async (req, res) => {
 }
 
 const getOneProducto = async (req, res) => {
-    const producto = await Producto.find({_id:req.params.id});
+    const producto = await Producto.findOne({_id:req.params.id});
     res.json(producto);
 }
 
